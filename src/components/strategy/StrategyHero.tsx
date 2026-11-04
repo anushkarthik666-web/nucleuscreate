@@ -266,7 +266,7 @@ export default function StrategyHero({ onOpenVideo, isModalOpen }: StrategyHeroP
 
             {/* Narrative Subhead */}
             <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-white/60 max-w-xl font-body leading-relaxed">
-              From strategy to final cut — live-action, AI-generated, or hybrid. One team. One process.
+              From strategy to final cut: live-action, AI-generated, or hybrid. One team. One process.
             </p>
 
             {/* CTAs */}

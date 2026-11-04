@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
   const [activeSection, setActiveSection] = useState<string>("leads-usage");
 
   useEffect(() => {
-    document.title = "Privacy Policy — Nucleus Productions | High-Volume Video Creative";
+    document.title = "Privacy Policy | Nucleus";
 
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
@@ -56,7 +56,6 @@ export default function PrivacyPolicy() {
         "logo": "https://www.nucleuscreate.in/logo.png",
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+91-98944-43263",
           "contactType": "customer service",
           "email": "hello@nucleuscreate.in",
         },
@@ -212,15 +211,15 @@ export default function PrivacyPolicy() {
                       <MessageCircle className="w-4 h-4" />
                     </div>
                     <h3 className="font-heading font-bold text-white text-base">
-                      1. Direct WhatsApp Outreach
+                      1. Direct Follow-Up
                     </h3>
                     <p className="mt-2 text-xs sm:text-sm text-white/70 leading-relaxed font-body">
-                      We use your provided mobile/WhatsApp number to initiate direct, 1-on-1 contact from our executive team (+91 98944 43263). This is used to confirm your application details, clarify creative volume requirements, and coordinate quick turnaround pilots without back-and-forth delays.
+                      If you share a phone number with us, we may contact you directly, including on WhatsApp. This is used to confirm your request, clarify what you need, and coordinate your free sample without back-and-forth delays.
                     </p>
                   </div>
                   <div className="mt-4 pt-3 border-t border-white/10 flex items-center gap-2 text-[11px] font-mono text-primary">
                     <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>Official Verified Number: +91 98944 43263</span>
+                    <span>Only if you choose to share a number</span>
                   </div>
                 </div>
 
@@ -313,9 +312,9 @@ export default function PrivacyPolicy() {
                     A. Lead Application & Inquiry Data
                   </h3>
                   <ul className="mt-3 text-xs sm:text-sm text-white/70 space-y-2 list-disc list-inside leading-relaxed font-body">
-                    <li><strong className="text-white">Contact Identity:</strong> Full Name, Business Email Address, Phone / WhatsApp Number.</li>
+                    <li><strong className="text-white">Contact Identity:</strong> Full Name, Email Address, and a Phone / WhatsApp Number if you choose to share one.</li>
                     <li><strong className="text-white">Company Information:</strong> Agency or Brand Name, Official Website, Social Media Handles, and Industry Vertical.</li>
-                    <li><strong className="text-white">Production Scope:</strong> Target monthly video delivery volume (e.g., 1-10, 11-30, 31-50+ videos/month), advertising budget tiers, target channels (Meta, TikTok, YouTube Shorts, TVC), and past advertising performance benchmarks.</li>
+                    <li><strong className="text-white">Production Scope:</strong> Your show or agency name, a link to your episode or footage, the type of edit you need, your monthly video volume, and your target channels.</li>
                     <li><strong className="text-white">Creative Diagnostic Answers:</strong> Responses to our interactive AI Challenge diagnostic test, video format preferences (Live-Action, AI-Generated with Editing, Motion Graphics), and creative briefing notes.</li>
                   </ul>
                 </div>
@@ -580,16 +579,6 @@ export default function PrivacyPolicy() {
                   >
                     <Mail className="w-4 h-4" />
                     <span>hello@nucleuscreate.in</span>
-                  </a>
-
-                  <a
-                    href="https://wa.me/919894443263?text=Hi%20Nucleus%20team,%20I%20have%20a%20question%20regarding%20privacy%20and%20data."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#25D366] text-black font-heading font-bold text-sm tracking-normal hover:brightness-105 active:scale-[0.98] transition-all shadow-md"
-                  >
-                    <MessageCircle className="w-4 h-4 fill-black" />
-                    <span>WhatsApp: +91 98944 43263</span>
                   </a>
                 </div>
 

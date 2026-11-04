@@ -101,12 +101,9 @@ function doPost(e) {
     new Date(),
     body.name || "",
     body.email || "",
-    body.phone || "",
-    body.agency || "",
-    body.clients || "",
-    body.videos || "",
-    body.budget || "",
-    body.meeting || "",
+    body.show || "",
+    body.link || "",
+    body.need || "",
     body.source || "",
     body.requestedAt || ""
   ]);
@@ -117,4 +114,4 @@ function doPost(e) {
 }
 ```
 
-After deployment, copy the web app URL into `VITE_LEAD_WEBHOOK_URL`.
+After deployment, copy the web app URL into `VITE_LEAD_WEBHOOK_URL`. Until this new script is live, the form also sends the show, link and request in the old `agency`, `clients` and `videos` fields so nothing is lost. Remove those three lines from `src/components/site/SampleForm.tsx` once the script is updated.

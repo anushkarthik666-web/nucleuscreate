@@ -43,7 +43,7 @@ const ThankYou = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl md:text-6xl font-heading font-extrabold tracking-tight mb-6"
           >
-            Application <span className="text-primary">Received.</span>
+            Got it. <span className="text-primary">Thank you.</span>
           </motion.h1>
 
           <motion.p
@@ -52,7 +52,7 @@ const ThankYou = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg text-muted-foreground font-body mb-10 max-w-lg mx-auto leading-relaxed"
           >
-            Your pilot request is in our system. Our team will review your agency's volume and reach out within 24 hours to coordinate your first video.
+            We have your request. We'll look at what you sent and reply by email within 24 hours.
           </motion.p>
 
           <motion.div
@@ -74,7 +74,7 @@ const ThankYou = () => {
               rel="noreferrer"
               className="magnetic-btn inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-heading font-semibold tracking-wide hover:opacity-90 transition-all"
             >
-              Book a Strategy Call
+              Book a call
             </a>
           </motion.div>
         </div>

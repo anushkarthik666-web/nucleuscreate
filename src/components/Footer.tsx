@@ -1,81 +1,42 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { container } from "@/components/site/Section";
+import { CALENDLY_URL, EMAIL, LINKEDIN_URL, STUDIO_LINE } from "@/lib/site";
 
-const Footer = () => {
+const linkCls = "text-sm text-white/65 transition-colors hover:text-white";
+
+export default function Footer() {
   return (
-    <motion.footer
-      className="border-t border-border/40 py-12 sm:py-16 bg-background"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-    >
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+    <footer className="border-t border-white/10 py-12 sm:py-16">
+      <div className={container}>
+        <div className="flex flex-col justify-between gap-10 md:flex-row">
           <div>
             <div className="flex items-center gap-2.5">
-              <img src="/logo.png" alt="Nucleus logo" className="h-9 w-auto" />
-              <span className="font-heading font-black text-lg tracking-wider text-white">NUCLEUS</span>
+              <img src="/logo-mark.png" alt="" width={32} height={32} loading="lazy" className="h-8 w-8" />
+              <span className="font-heading text-base font-semibold tracking-[0.14em] text-white">NUCLEUS</span>
             </div>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3 mt-3">
-              <a
-                href="mailto:hello@nucleuscreate.in"
-                className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors font-body flex items-center gap-1.5"
-                data-cursor-hover
-              >
-                <span>hello@nucleuscreate.in</span>
-              </a>
-              <span className="hidden sm:inline text-white/20">•</span>
-              <a
-                href="https://wa.me/919894443263"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs sm:text-sm text-[#25D366] hover:brightness-125 transition-colors font-body flex items-center gap-1.5 font-semibold"
-                data-cursor-hover
-              >
-                <span>WhatsApp: +91 98944 43263</span>
-              </a>
-            </div>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/55">{STUDIO_LINE}</p>
           </div>
-
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            <Link
-              to="/services/ai-video-strategy"
-              className="text-xs sm:text-sm text-primary hover:brightness-125 font-heading font-bold transition-colors flex items-center gap-1.5"
-            >
-              <span>AI Video Strategy</span>
-              <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-primary/20 text-primary border border-primary/30 uppercase font-extrabold">
-                NEW
-              </span>
-            </Link>
-            {["Proof", "Services", "Pricing", "Apply"].map((s) => (
-              <a
-                key={s}
-                href={`#${s.toLowerCase()}`}
-                className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors font-body"
-                data-cursor-hover
-              >
-                {s}
-              </a>
-            ))}
+          <div className="flex flex-col gap-6 sm:flex-row sm:gap-14">
+            <div className="flex flex-col gap-3">
+              <Link to="/#work" className={linkCls}>Work</Link>
+              <Link to="/podcasts" className={linkCls}>Podcasts</Link>
+              <Link to="/agencies" className={linkCls}>Agencies</Link>
+              <Link to="/services/ai-video-strategy" className={linkCls}>AI Video</Link>
+            </div>
+            <div className="flex flex-col gap-3">
+              <a href={`mailto:${EMAIL}`} className={linkCls}>{EMAIL}</a>
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className={linkCls}>Calendly</a>
+              {LINKEDIN_URL && (
+                <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className={linkCls}>LinkedIn</a>
+              )}
+            </div>
           </div>
         </div>
-
-        <div className="mt-10 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground/70 font-body">
-            <span>© {new Date().getFullYear()} Nucleus Productions. All rights reserved.</span>
-            <span>•</span>
-            <Link to="/privacy-policy" className="hover:text-primary transition-colors underline decoration-white/20 underline-offset-4">
-              Privacy Policy
-            </Link>
-          </div>
-          <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground/60 font-heading">
-            White-Label Creative Studio · High-Volume Video Production
-          </span>
+        <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-t border-white/10 pt-6 text-xs text-white/45">
+          <span>© {new Date().getFullYear()} Nucleus Productions. All rights reserved.</span>
+          <Link to="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
         </div>
       </div>
-    </motion.footer>
+    </footer>
   );
-};
-
-export default Footer;
+}

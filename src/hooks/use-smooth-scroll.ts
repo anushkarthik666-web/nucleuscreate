@@ -7,7 +7,6 @@ const useSmoothScroll = () => {
       lerp: 0.08,
       wheelMultiplier: 1,
       smoothWheel: true,
-      smoothTouch: false, // Ensure native buttery smooth scroll on mobile
       infinite: false,
     });
 

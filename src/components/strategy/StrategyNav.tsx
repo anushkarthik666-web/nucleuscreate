@@ -145,14 +145,6 @@ export default function StrategyNav() {
                 >
                   Book Strategy Call
                 </a>
-                <a
-                  href="https://wa.me/919894443263"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3 rounded-full border border-white/20 text-white font-heading font-semibold text-sm"
-                >
-                  Chat on WhatsApp
-                </a>
               </div>
             </div>
           </motion.div>

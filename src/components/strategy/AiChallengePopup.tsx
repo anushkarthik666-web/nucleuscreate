@@ -403,8 +403,8 @@ export default function AiChallengePopup({ onOpenChange, isVideoModalOpen }: AiC
                             <div>
                               <div className="font-heading font-black text-sm sm:text-base text-white">
                                 {selectedOption === "B"
-                                  ? "🎉 Correct! You nailed it — Camry is AI!"
-                                  : "👀 Almost! The Corvette is REAL — Camry is AI!"}
+                                  ? "🎉 Correct! You nailed it. Camry is AI!"
+                                  : "👀 Almost! The Corvette is REAL. Camry is AI!"}
                               </div>
                               <p className="text-xs sm:text-sm text-white/80 font-body mt-1 leading-relaxed">
                                 <strong className="text-primary font-bold">B (Camry) is AI, A (Corvette) is real.</strong>{" "}
