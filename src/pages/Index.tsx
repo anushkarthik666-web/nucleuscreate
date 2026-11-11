@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CtaLink } from "@/components/site/Buttons";
+import CaseStudies from "@/components/site/CaseStudies";
 import FinalCta from "@/components/site/FinalCta";
 import ProcessSteps from "@/components/site/ProcessSteps";
 import { container, Section, SectionHeading } from "@/components/site/Section";
@@ -128,6 +129,8 @@ export default function Index() {
           <SectionHeading eyebrow="Work" title="See it before you book it." description="Press play on anything below." />
           <WorkTabs tabs={homeWorkTabs} />
         </Section>
+
+        <CaseStudies />
 
         <Section id="services" className="border-t border-white/10">
           <SectionHeading eyebrow="What we do" title="Two ways to work with us." />
