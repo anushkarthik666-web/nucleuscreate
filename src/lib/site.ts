@@ -17,6 +17,6 @@ export const LEAD_WEBHOOK_URL =
 
 export const STUDIO_LINE = "Studio based in Bangalore, working US and UK hours.";
 
-export const DEFAULT_TITLE = "Nucleus | Podcast and Video Post-Production Studio";
+export const DEFAULT_TITLE = "Nucleus | Podcast Editing, Motion Graphics and AI Video Studio";
 export const DEFAULT_DESCRIPTION =
-  "Full episodes, teasers and Shorts for podcasts, and white-label editing for agencies. 48-hour turnaround.";
+  "Podcast editing, motion graphics, AI video and clipping from one fixed team working US and UK hours.";

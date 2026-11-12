@@ -6,59 +6,60 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CtaLink } from "@/components/site/Buttons";
 import CaseStudies from "@/components/site/CaseStudies";
 import FinalCta from "@/components/site/FinalCta";
-import LogoGrid from "@/components/site/LogoGrid";
 import LogoMarquee from "@/components/site/LogoMarquee";
 import ProcessSteps from "@/components/site/ProcessSteps";
-import { container, framed, lightPage, Section, SectionHeading } from "@/components/site/Section";
+import { container, lightPage, Section, SectionHeading } from "@/components/site/Section";
 import WaveBackground from "@/components/site/WaveBackground";
 import WorkTabs from "@/components/site/WorkTabs";
+import { services, type Service } from "@/data/services";
 import { homeWorkTabs } from "@/data/work";
 import usePageMeta from "@/hooks/use-page-meta";
 import { CALENDLY_URL, DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "@/lib/site";
 
 const numbers = [
   { value: "200+", label: "brands and agencies" },
-  { value: "48-hour", label: "turnaround" },
+  { value: "48-hour", label: "turnaround on edits" },
   { value: "5-person", label: "editing team" },
   { value: "US and UK", label: "hours" },
 ];
 
 const faqs = [
-  { q: "How fast is the turnaround?", a: "48 hours from the moment we have your raw files." },
+  {
+    q: "Can we hire you for just one service?",
+    a: "Yes. Each service runs on its own, so you can start with podcast editing, motion graphics, AI video or clipping and add another whenever you need it.",
+  },
+  {
+    q: "How fast is the turnaround?",
+    a: "48 hours for podcast edits and clips, from the moment we have your raw files. Motion graphics and AI video run on a schedule we agree on the call.",
+  },
   {
     q: "What do you need from us?",
-    a: "The raw recordings in a shared folder, plus any brand assets and notes on how you like your show or ads to feel. We take it from there.",
+    a: "Your recordings or footage in a shared folder, plus any brand assets and notes on how you want it to feel. We take it from there.",
   },
   { q: "How do revisions work?", a: "You review each edit in one round. Send your notes together, we make the changes, and you publish." },
   {
-    q: "How does white-label work?",
-    a: "We work behind your agency. Your clients only ever deal with you, and the same editors stay on your account every time.",
-  },
-  {
-    q: "What about time zones and communication?",
-    a: "We're based in Bangalore and work US and UK hours, so you can reach us during your day. You get one fixed team, not a queue.",
+    q: "Do you work with agencies?",
+    a: "Yes, white-label. We work behind your agency, your clients only ever deal with you, and the same editors stay on your account every time.",
   },
   {
     q: "How much does it cost?",
-    a: "It depends on volume and format. Book a 15-minute call and we'll quote within 24 hours, or start with a free sample.",
+    a: "It depends on the service, volume and format. Book a 15-minute call and we'll quote within 24 hours, or start with a free sample.",
   },
 ];
 
-type ServiceCardProps = { title: string; text: string; to: string; image: string; className?: string };
-
-function ServiceCard({ title, text, to, image, className = "" }: ServiceCardProps) {
+function ServiceCard({ service }: { service: Service }) {
   return (
-    <Link to={to} className={`group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-3xl bg-neutral-950 p-6 text-white sm:p-9 ${className}`}>
-      <img src={image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-45 transition-transform duration-700 group-hover:scale-[1.03]" />
+    <Link to={service.to} className="group relative flex min-h-[300px] flex-col justify-end overflow-hidden rounded-3xl bg-neutral-950 p-6 text-white sm:min-h-[360px] sm:p-8">
+      <img src={service.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-45 transition-transform duration-700 group-hover:scale-[1.03]" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10" />
-      <div className="relative flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-        <div className="max-w-md">
-          <h3 className="font-heading text-2xl font-semibold tracking-tight">{title}</h3>
-          <p className="mt-2 leading-relaxed text-white/70">{text}</p>
+      <div className="relative">
+        <div className="flex items-center justify-between gap-4">
+          <h3 className="font-heading text-2xl font-semibold tracking-tight">{service.title}</h3>
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur transition-colors group-hover:bg-white group-hover:text-black">
+            <ArrowUpRight className="h-4 w-4" />
+          </span>
         </div>
-        <span className="inline-flex w-max shrink-0 items-center gap-1 whitespace-nowrap rounded-full bg-white/10 px-4 py-2 text-sm backdrop-blur transition-colors group-hover:bg-white/20">
-          Learn more <ArrowUpRight className="h-4 w-4" />
-        </span>
+        <p className="mt-2 max-w-md leading-relaxed text-white/70">{service.text}</p>
       </div>
     </Link>
   );
@@ -74,65 +75,40 @@ export default function Index() {
         <section className="relative overflow-hidden bg-[#050505] text-white">
           <WaveBackground />
           {/* Vignette: darkens the edges and fades into the next section. */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_45%,transparent_30%,#050505_85%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_45%,transparent_30%,#050505_85%)]" />
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-[#050505]" />
-          <div className={`${container} relative flex min-h-[88svh] flex-col justify-end pb-10 pt-32`}>
-            <div className="grid items-end gap-8 lg:grid-cols-[1.7fr_1fr]">
-              <div>
-                <h1 className="max-w-3xl font-heading text-[2.6rem] font-semibold leading-[1.03] tracking-[-0.03em] sm:text-6xl lg:text-[3.9rem]">
-                  Your podcast and video <span className="whitespace-nowrap">post-production</span> team.
-                </h1>
-                <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                  <CtaLink href={CALENDLY_URL} variant="light">Book a 15-minute call</CtaLink>
-                  <CtaLink href="#work" variant="ghostDark">See our work</CtaLink>
-                </div>
-              </div>
-              <p className="max-w-sm text-base leading-relaxed text-white/70 lg:mb-16 lg:justify-self-end">
-                Full episodes, teasers and Shorts for podcasts, and white-label editing for agencies. One fixed team, 48-hour turnaround, US and UK hours.
+          <div className={`${container} relative flex min-h-[92svh] flex-col pb-10 pt-36 sm:pt-44`}>
+            <div className="mx-auto flex max-w-4xl flex-1 flex-col items-center text-center">
+              <h1 className="font-heading text-[2.5rem] font-semibold leading-[1.04] tracking-[-0.03em] sm:text-6xl lg:text-[4.2rem]">
+                The video studio behind ambitious brands and podcasts.
+              </h1>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
+                Podcast editing, motion graphics, AI video and clipping. One fixed team, working US and UK hours.
               </p>
+              <div className="mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+                <CtaLink href={CALENDLY_URL} variant="light">Book a call</CtaLink>
+                <CtaLink href="#work" variant="ghostDark">See our work</CtaLink>
+              </div>
             </div>
-            <div className="mt-16 sm:mt-20">
+            <div className="mt-20">
+              <p className="mb-6 text-center text-sm text-white/45">Trusted by 200+ brands and agencies</p>
               <LogoMarquee />
             </div>
           </div>
         </section>
 
-        <section aria-label="Clients">
-          <div className={`${framed} py-16 sm:py-20`}>
-            <p className="mb-8 text-center text-sm text-neutral-500">Trusted by 200+ brands and agencies</p>
-            <LogoGrid />
-          </div>
-        </section>
-
-        <Section id="work">
-          <SectionHeading eyebrow="Our work" title="See it before you book it." description="Press play on anything below." />
-          <WorkTabs tabs={homeWorkTabs} />
-        </Section>
-
         <Section id="services">
-          <SectionHeading eyebrow="Our services" title="Podcasts, clips and AI video. One team.">
+          <SectionHeading
+            eyebrow="What we do"
+            title="Four services. One studio."
+            description="Pick the one you need, or combine them. Each has its own page with samples."
+          >
             <CtaLink href={CALENDLY_URL} variant="soft" className="self-start sm:self-auto">Book a call</CtaLink>
           </SectionHeading>
           <div className="mt-10 grid gap-3 md:grid-cols-2">
-            <ServiceCard
-              className="md:col-span-2 md:min-h-[400px]"
-              title="Podcasts"
-              text="Full episode edit, a teaser and 3 to 5 Shorts every week, plus thumbnails."
-              to="/podcasts"
-              image="https://i.ytimg.com/vi/-H-Y7i9EtbQ/maxresdefault.jpg"
-            />
-            <ServiceCard
-              title="Clipping"
-              text="Shorts, Reels and TikToks cut from your long-form, with captions and a hook in the first seconds."
-              to="/clipping"
-              image="https://i.ytimg.com/vi/t8vLk50R4kw/maxresdefault.jpg"
-            />
-            <ServiceCard
-              title="AI Video"
-              text="Product ads and brand films made with AI and finished by our editors."
-              to="/services/ai-video-strategy"
-              image="/posters/sapphire-events.jpg"
-            />
+            {services.map((s) => (
+              <ServiceCard key={s.to} service={s} />
+            ))}
           </div>
           <Link
             to="/agencies"
@@ -141,11 +117,16 @@ export default function Index() {
             <div>
               <h3 className="font-heading text-xl font-semibold tracking-tight">For agencies</h3>
               <p className="mt-1 text-neutral-600">
-                White-label edits, hooks and variations for your clients. 48-hour turnaround, the same editors every time, never client-facing.
+                All four services, white-label. The same editors every time, never client-facing.
               </p>
             </div>
             <ArrowUpRight className="h-5 w-5 shrink-0 text-neutral-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>
+        </Section>
+
+        <Section id="work">
+          <SectionHeading eyebrow="Selected work" title="See it before you book it." description="A few picks from each service. Press play on anything below." />
+          <WorkTabs tabs={homeWorkTabs} />
         </Section>
 
         <CaseStudies />
@@ -181,7 +162,7 @@ export default function Index() {
           </Accordion>
         </Section>
 
-        <FinalCta />
+        <FinalCta title="Send us one video. We'll show you what it can become." />
       </main>
       <Footer />
     </div>

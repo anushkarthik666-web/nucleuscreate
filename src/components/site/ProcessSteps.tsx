@@ -1,6 +1,6 @@
-const steps = ["Send the raw files", "We edit in 48 hours", "You review in one round and publish."];
+const defaultSteps = ["Send the raw files", "We edit in 48 hours", "You review in one round and publish."];
 
-export default function ProcessSteps() {
+export default function ProcessSteps({ steps = defaultSteps }: { steps?: string[] }) {
   return (
     <ol className="mt-10 grid gap-3 md:grid-cols-3">
       {steps.map((step, i) => (

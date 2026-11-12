@@ -20,6 +20,8 @@ export type WorkTab = {
   id: string;
   label: string;
   videos: WorkVideo[];
+  // Optional link under the grid, used on the homepage to point at the full service page.
+  more?: { label: string; to: string };
 };
 
 export const podcastTeasers: WorkVideo[] = [
@@ -333,13 +335,35 @@ export const aiVideo: WorkVideo[] = [
   },
 ];
 
+// Homepage: a few picks per service, each tab linking to that service's page for the rest.
 export const homeWorkTabs: WorkTab[] = [
-  { id: "teasers", label: "Podcast teasers", videos: podcastTeasers },
-  { id: "shorts", label: "Shorts", videos: shorts },
-  { id: "episodes", label: "Full episodes", videos: fullEpisodes },
-  { id: "motion", label: "Motion graphics", videos: motionGraphics },
-  { id: "ai", label: "AI video", videos: aiVideo },
+  {
+    id: "podcasts",
+    label: "Podcast editing",
+    videos: [podcastTeasers[0], podcastTeasers[1], fullEpisodes[0]],
+    more: { label: "See all podcast work", to: "/podcasts" },
+  },
+  {
+    id: "motion",
+    label: "Motion graphics",
+    videos: motionGraphics.slice(0, 3),
+    more: { label: "See all motion graphics", to: "/motion-graphics" },
+  },
+  {
+    id: "ai",
+    label: "AI video",
+    videos: aiVideo.slice(0, 3),
+    more: { label: "See all AI video", to: "/services/ai-video-strategy" },
+  },
+  {
+    id: "clipping",
+    label: "Clipping",
+    videos: shorts,
+    more: { label: "See all clipping", to: "/clipping" },
+  },
 ];
+
+export const motionWorkTabs: WorkTab[] = [{ id: "motion", label: "Motion graphics", videos: motionGraphics }];
 
 export const podcastWorkTabs: WorkTab[] = [
   { id: "teasers", label: "Teasers", videos: podcastTeasers },

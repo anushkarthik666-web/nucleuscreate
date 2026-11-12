@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { services } from "@/data/services";
 import { container } from "@/components/site/Section";
 import { CALENDLY_URL, EMAIL, LINKEDIN_URL, STUDIO_LINE } from "@/lib/site";
 
@@ -21,10 +22,10 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 sm:gap-16">
             <div className="flex flex-col gap-3">
               <p className={head}>Services</p>
-              <Link to="/podcasts" className={linkCls}>Podcasts</Link>
-              <Link to="/clipping" className={linkCls}>Clipping</Link>
-              <Link to="/services/ai-video-strategy" className={linkCls}>AI Video</Link>
-              <Link to="/agencies" className={linkCls}>Agencies</Link>
+              {services.map((s) => (
+                <Link key={s.to} to={s.to} className={linkCls}>{s.title}</Link>
+              ))}
+              <Link to="/agencies" className={linkCls}>For agencies</Link>
             </div>
             <div className="flex flex-col gap-3">
               <p className={head}>Company</p>

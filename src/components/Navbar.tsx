@@ -1,22 +1,69 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { CtaLink } from "@/components/site/Buttons";
 import { container } from "@/components/site/Section";
+import { services } from "@/data/services";
 import { CALENDLY_URL } from "@/lib/site";
 
 const links = [
   { label: "Work", to: "/#work" },
-  { label: "Podcasts", to: "/podcasts" },
-  { label: "Clipping", to: "/clipping" },
-  { label: "AI Video", to: "/services/ai-video-strategy" },
-  { label: "Agencies", to: "/agencies" },
+  { label: "For agencies", to: "/agencies" },
+  { label: "Contact", to: "/#sample" },
 ];
+
+// Services dropdown: opens on hover or click on desktop, closes on Escape or a click outside.
+function ServicesMenu({ light }: { light: boolean }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  return (
+    <div ref={ref} className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        aria-haspopup="true"
+        className={`flex items-center gap-1 py-5 text-[13px] font-medium transition-opacity hover:opacity-100 ${light ? "opacity-70" : "opacity-80"}`}
+      >
+        Services
+        <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div className="absolute left-1/2 top-full w-[340px] -translate-x-1/2 pt-1">
+          <div className="rounded-2xl border border-black/[0.06] bg-white p-2 text-neutral-950 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.25)]">
+            {services.map((s) => (
+              <Link key={s.to} to={s.to} onClick={() => setOpen(false)} className="block rounded-xl px-4 py-3 transition-colors hover:bg-black/[0.04]">
+                <span className="block text-sm font-medium">{s.title}</span>
+                <span className="mt-0.5 block text-[13px] text-neutral-500">{s.short}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 // Transparent with white text over the dark hero, then a light bar once the page scrolls.
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -24,6 +71,8 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => setOpen(false), [pathname]);
 
   const light = scrolled || open;
 
@@ -39,7 +88,8 @@ export default function Navbar() {
           <span className="font-heading text-[17px] font-semibold tracking-tight">Nucleus</span>
         </Link>
 
-        <div className="hidden items-center gap-7 md:flex">
+        <div className="hidden items-center gap-8 md:flex">
+          <ServicesMenu light={light} />
           {links.map((link) => (
             <Link key={link.label} to={link.to} className={`text-[13px] font-medium transition-opacity hover:opacity-100 ${light ? "opacity-70" : "opacity-80"}`}>
               {link.label}
@@ -64,10 +114,17 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-black/[0.06] md:hidden">
+        <div className="max-h-[calc(100svh-4rem)] overflow-y-auto border-t border-black/[0.06] md:hidden">
           <div className={`${container} flex flex-col py-3`}>
+            <p className="pb-1 pt-3 text-xs font-medium uppercase tracking-wider text-neutral-400">Services</p>
+            {services.map((s) => (
+              <Link key={s.to} to={s.to} onClick={() => setOpen(false)} className="py-2.5 text-lg">
+                {s.title}
+              </Link>
+            ))}
+            <div className="my-3 border-t border-black/[0.06]" />
             {links.map((link) => (
-              <Link key={link.label} to={link.to} onClick={() => setOpen(false)} className="py-3 text-lg">
+              <Link key={link.label} to={link.to} onClick={() => setOpen(false)} className="py-2.5 text-lg">
                 {link.label}
               </Link>
             ))}
