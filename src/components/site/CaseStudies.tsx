@@ -9,7 +9,7 @@ export default function CaseStudies() {
   return (
     <Section id="results" className="border-t border-white/10">
       <SectionHeading eyebrow="Results" title="What the work did." />
-      <div className="mt-10 grid gap-4 lg:grid-cols-2">
+      <div className={`mt-10 grid gap-4 ${ready.length > 1 ? "lg:grid-cols-2" : "max-w-3xl"}`}>
         {ready.map((c) => (
           <article key={c.id} className="flex flex-col rounded-2xl border border-white/10 p-6 sm:p-8">
             <p className="text-sm font-medium text-primary">{c.client}</p>

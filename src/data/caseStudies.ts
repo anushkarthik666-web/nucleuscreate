@@ -24,6 +24,7 @@ export const caseStudies: CaseStudy[] = [
     title: "A teaser for the episode with Matt Mullenweg",
     summary: "We cut the teaser for Kleiner Perkins' founder interview with the co-founder of WordPress.",
     youtubeId: "-H-Y7i9EtbQ",
+    // No numbers yet, so this card stays hidden.
     stats: [],
   },
   {
@@ -32,6 +33,12 @@ export const caseStudies: CaseStudy[] = [
     title: "Full episodes and teasers",
     summary: "We edit full episodes and teasers for Infinite Loops, including the Spencer Greenberg interview.",
     youtubeId: "nJBxhS4GqFU",
-    stats: [],
+    // Source: youtube.com/@infinitel88ps, checked 12 Nov 2026. The 10 latest full episodes,
+    // published 30 Jul to 29 Oct 2026, had 6,537 views in total. Subscribers is the channel total.
+    stats: [
+      { value: "6,500+", label: "views on the last 10 episodes" },
+      { value: "13.2K", label: "channel subscribers" },
+      { value: "3 months", label: "10 full episodes" },
+    ],
   },
 ];
