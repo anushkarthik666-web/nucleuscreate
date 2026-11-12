@@ -107,11 +107,63 @@ export const fullEpisodes: WorkVideo[] = [
   },
 ];
 
-// TODO(work): no motion graphics links were provided. Replace these three placeholders with YouTube links.
+// Motion graphics samples. Compressed 720p copies of the files in the "Motion graphics" Drive folder,
+// stored in public/work/motion.
 export const motionGraphics: WorkVideo[] = [
-  { id: "motion-placeholder-1", show: "Motion graphics", format: "Explainer", work: "Sample coming soon", placeholder: true },
-  { id: "motion-placeholder-2", show: "Motion graphics", format: "Title and lower-third pack", work: "Sample coming soon", placeholder: true },
-  { id: "motion-placeholder-3", show: "Motion graphics", format: "Animated promo", work: "Sample coming soon", placeholder: true },
+  {
+    id: "nucleus-explainer",
+    show: "Nucleus",
+    format: "Brand explainer",
+    work: "Our own studio explainer, built in motion",
+    src: "/work/motion/nucleus-explainer.mp4",
+    poster: "/work/motion/nucleus-explainer.jpg",
+    vertical: true,
+  },
+  {
+    id: "atlys-not-a-coin",
+    show: "Atlys",
+    format: "Launch promo",
+    work: "Collage animation for the One Way Out visa sale",
+    src: "/work/motion/atlys-not-a-coin.mp4",
+    poster: "/work/motion/atlys-not-a-coin.jpg",
+    vertical: true,
+  },
+  {
+    id: "zuperior-trading",
+    show: "Zuperior",
+    format: "App promo",
+    work: "Neon interface animation for a trading app",
+    src: "/work/motion/zuperior-trading.mp4",
+    poster: "/work/motion/zuperior-trading.jpg",
+    vertical: true,
+  },
+  {
+    id: "dubai-story",
+    show: "Dubai story",
+    format: "Animated explainer",
+    work: "How Dubai was built, told in motion graphics",
+    src: "/work/motion/dubai-story.mp4",
+    poster: "/work/motion/dubai-story.jpg",
+    vertical: true,
+  },
+  {
+    id: "indus-app",
+    show: "Indus",
+    format: "App ad",
+    work: "Investing app launch with animated product screens",
+    src: "/work/motion/indus-app.mp4",
+    poster: "/work/motion/indus-app.jpg",
+    vertical: true,
+  },
+  {
+    id: "strike-rrg",
+    show: "Strike",
+    format: "Explainer",
+    work: "Relative Rotation Graphs, with animated charts",
+    src: "/work/motion/strike-rrg.mp4",
+    poster: "/work/motion/strike-rrg.jpg",
+    vertical: true,
+  },
 ];
 
 // AI video samples. Compressed 720p copies of the files in the "AI Videos" Drive folder,
