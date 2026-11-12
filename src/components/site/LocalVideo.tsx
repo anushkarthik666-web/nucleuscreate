@@ -22,11 +22,7 @@ export default function LocalVideo({ src, poster, title, vertical = false, class
   };
 
   return (
-    <div
-      className={`relative overflow-hidden rounded-2xl border border-white/10 bg-black ${
-        vertical ? "aspect-[9/16]" : "aspect-video"
-      } ${className}`}
-    >
+    <div className={`relative overflow-hidden rounded-2xl bg-neutral-900 ${vertical ? "aspect-[9/16]" : "aspect-video"} ${className}`}>
       <video
         ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
@@ -38,15 +34,9 @@ export default function LocalVideo({ src, poster, title, vertical = false, class
         aria-label={title}
       />
       {!active && (
-        <button
-          type="button"
-          onClick={start}
-          aria-label={`Play ${title}`}
-          className="group absolute inset-0 h-full w-full"
-        >
-          <span className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-          <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform duration-300 group-hover:scale-105">
-            <Play className="ml-0.5 h-5 w-5 fill-current" />
+        <button type="button" onClick={start} aria-label={`Play ${title}`} className="group absolute inset-0 h-full w-full">
+          <span className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-black shadow-lg backdrop-blur transition-transform duration-300 group-hover:scale-105">
+            <Play className="ml-0.5 h-4 w-4 fill-current" />
           </span>
         </button>
       )}

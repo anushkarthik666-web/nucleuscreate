@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"Outfit"', 'sans-serif'],
+        heading: ['"Switzer"', '"Inter"', 'sans-serif'],
         body: ['"Inter"', 'sans-serif'],
       },
       colors: {

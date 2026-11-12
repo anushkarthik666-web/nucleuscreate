@@ -13,14 +13,14 @@ function VideoCard({ video }: { video: WorkVideo }) {
       ) : video.src ? (
         <LocalVideo src={video.src} poster={video.poster} title={title} vertical={video.vertical} />
       ) : (
-        <div className="flex aspect-video flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-white/15 bg-white/[0.02] text-white/40">
+        <div className="flex aspect-video flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-black/15 bg-black/[0.02] text-neutral-400">
           <Clapperboard className="h-5 w-5" />
           <span className="text-sm">Sample coming soon</span>
         </div>
       )}
       <figcaption className="mt-3 text-sm leading-snug">
-        <span className="font-medium text-white">{video.show}</span>
-        <span className="text-white/55"> · {video.format}. {video.work}</span>
+        <span className="font-medium text-neutral-950">{video.show}</span>
+        <span className="text-neutral-500"> · {video.format}. {video.work}</span>
       </figcaption>
     </figure>
   );
@@ -38,7 +38,7 @@ export default function WorkTabs({ tabs }: { tabs: WorkTab[] }) {
           <TabsPrimitive.Trigger
             key={tab.id}
             value={tab.id}
-            className="shrink-0 rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-white/70 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary data-[state=active]:border-white data-[state=active]:bg-white data-[state=active]:text-black"
+            className="shrink-0 rounded-full bg-black/[0.05] px-4 py-2 text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 data-[state=active]:bg-neutral-950 data-[state=active]:text-white"
           >
             {tab.label}
           </TabsPrimitive.Trigger>
