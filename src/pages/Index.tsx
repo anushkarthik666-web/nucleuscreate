@@ -1,9 +1,11 @@
+import type { ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CtaLink } from "@/components/site/Buttons";
+import PodcastAnim from "@/components/site/anim/PodcastAnim";
 import CaseStudies from "@/components/site/CaseStudies";
 import FinalCta from "@/components/site/FinalCta";
 import LogoMarquee from "@/components/site/LogoMarquee";
@@ -47,19 +49,30 @@ const faqs = [
   },
 ];
 
+// Animated visuals per service. Services without one yet show their still image in the same panel.
+const visuals: Record<string, ReactNode> = {
+  "/podcasts": <PodcastAnim />,
+};
+
 function ServiceCard({ service }: { service: Service }) {
+  const visual = visuals[service.to];
   return (
-    <Link to={service.to} className="group relative flex min-h-[300px] flex-col justify-end overflow-hidden rounded-3xl bg-neutral-950 p-6 text-white sm:min-h-[360px] sm:p-8">
-      <img src={service.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-45 transition-transform duration-700 group-hover:scale-[1.03]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10" />
-      <div className="relative">
-        <div className="flex items-center justify-between gap-4">
-          <h3 className="font-heading text-2xl font-semibold tracking-tight">{service.title}</h3>
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur transition-colors group-hover:bg-white group-hover:text-black">
-            <ArrowUpRight className="h-4 w-4" />
-          </span>
+    <Link to={service.to} className="group flex flex-col rounded-3xl border border-black/[0.08] bg-white p-2.5 transition-colors hover:border-black/20">
+      <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-2xl bg-[#F3F3F3]">
+        {visual ? (
+          <div className="w-full max-w-[460px] px-4">{visual}</div>
+        ) : (
+          <img src={service.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+        )}
+      </div>
+      <div className="flex items-start justify-between gap-4 p-4 sm:p-5">
+        <div>
+          <h3 className="font-heading text-xl font-semibold tracking-tight text-neutral-950 sm:text-2xl">{service.title}</h3>
+          <p className="mt-1.5 max-w-md leading-relaxed text-neutral-600">{service.text}</p>
         </div>
-        <p className="mt-2 max-w-md leading-relaxed text-white/70">{service.text}</p>
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-black/[0.05] transition-colors group-hover:bg-neutral-950 group-hover:text-white">
+          <ArrowUpRight className="h-4 w-4" />
+        </span>
       </div>
     </Link>
   );
