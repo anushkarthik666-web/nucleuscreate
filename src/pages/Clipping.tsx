@@ -83,6 +83,7 @@ export default function Clipping() {
       <Navbar />
       <main>
         <PageHero
+          seed={6}
           eyebrow="Clipping"
           title="Turn every episode into a week of clips."
           description="Shorts, Reels and TikToks cut from your long-form, with captions and a hook in the first seconds. Same editors, every week."

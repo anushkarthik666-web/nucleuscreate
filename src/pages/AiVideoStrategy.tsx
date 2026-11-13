@@ -156,6 +156,7 @@ export default function AiVideoStrategy() {
       <Navbar />
       <main>
         <PageHero
+          seed={9}
           eyebrow="AI video, strategy and production"
           title="We don't just make AI videos. We make videos that feel right for your brand."
           description="From the first idea to the final cut. Live-action, AI or a mix of both. One team, one process."

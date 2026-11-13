@@ -1,7 +1,6 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { CtaLink } from "@/components/site/Buttons";
-import PodcastAnim from "@/components/site/anim/PodcastAnim";
 import CaseStudies from "@/components/site/CaseStudies";
 import FinalCta from "@/components/site/FinalCta";
 import { lightPage, PageHero, Section, SectionHeading } from "@/components/site/Section";
@@ -41,7 +40,7 @@ const steps = [
     details: ["Video and audio from every camera and mic.", "Timestamps for anything to cut or keep.", "Your guest's name and links for the titles."],
   },
   {
-    when: "Within 48 hours",
+    when: "Within 3 days",
     title: "We edit",
     text: "The same editors who know your show cut the episode, the teaser and the Shorts.",
     details: ["Full episode edit.", "Teaser and 3 to 5 Shorts.", "Thumbnails for the episode and clips."],
@@ -66,7 +65,7 @@ const onboarding = [
 const shows = ["Kleiner Perkins", "Infinite Loops", "The Intrinsic Value Podcast", "TIP"];
 
 const faqs = [
-  { q: "How fast is the turnaround?", a: "48 hours from the moment we have your raw files, for the full episode, the teaser and the Shorts." },
+  { q: "How fast is the turnaround?", a: "3 days from the moment we have your raw files, for the full episode, the teaser and the Shorts." },
   { q: "Will the same editors work on my show?", a: "Yes. One fixed team works on your show every week, so they learn your style and you stop repeating yourself." },
   { q: "How do revisions work?", a: "You review each edit in one round. Send your notes together, we make the changes, and you publish." },
   { q: "Do you work with audio-only podcasts?", a: "Yes. We edit audio-only episodes for your feed, and can still cut teasers and audiograms from them." },
@@ -78,7 +77,7 @@ const faqs = [
 export default function Podcasts() {
   usePageMeta({
     title: "Podcast Editing: Full Episodes, Teasers and Shorts | Nucleus",
-    description: "Full episode edit, a teaser and 3 to 5 Shorts every week, plus thumbnails. 48-hour turnaround from a fixed team working US and UK hours.",
+    description: "Full episode edit, a teaser and 3 to 5 Shorts every week, plus thumbnails. 3-day turnaround from a fixed team working US and UK hours.",
     path: "/podcasts",
   });
 
@@ -87,14 +86,10 @@ export default function Podcasts() {
       <Navbar />
       <main>
         <PageHero
+          seed={0}
           eyebrow="Podcast editing"
           title="You record. We handle everything after."
-          description="Full episode edit, a teaser and 3 to 5 Shorts every week, plus thumbnails. One fixed team, working your hours, with a 48-hour turnaround."
-          aside={
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-4 sm:p-6">
-              <PodcastAnim theme="dark" />
-            </div>
-          }
+          description="Full episode edit, a teaser and 3 to 5 Shorts every week, plus thumbnails. One fixed team, working your hours, with a 3-day turnaround."
         >
           <CtaLink href={CALENDLY_URL} variant="light">Book a call</CtaLink>
           <CtaLink href="#samples" variant="ghostDark">See samples</CtaLink>
@@ -125,7 +120,7 @@ export default function Podcasts() {
         </Section>
 
         <Section id="turnaround">
-          <SectionHeading eyebrow="How it works" title="48 hours from raw files to edit." description="Three steps, the same every week." />
+          <SectionHeading eyebrow="How it works" title="3 days from raw files to edit." description="Three steps, the same every week." />
           <StepList steps={steps} />
         </Section>
 

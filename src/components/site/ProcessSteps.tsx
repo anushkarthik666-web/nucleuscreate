@@ -1,4 +1,4 @@
-const defaultSteps = ["Send the raw files", "We edit in 48 hours", "You review in one round and publish."];
+const defaultSteps = ["Send the raw files", "We edit within 3 days", "You review in one round and publish."];
 
 export default function ProcessSteps({ steps = defaultSteps }: { steps?: string[] }) {
   return (
