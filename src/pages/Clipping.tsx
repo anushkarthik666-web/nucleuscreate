@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { CtaLink } from "@/components/site/Buttons";
 import FinalCta from "@/components/site/FinalCta";
+import { FeedBg } from "@/components/site/HeroBackgrounds";
 import { lightPage, PageHero, Section, SectionHeading } from "@/components/site/Section";
 import { CardGrid, Checklist, FaqSection, Pills, PricingStrip, StepList } from "@/components/site/ServiceBlocks";
 import WorkTabs from "@/components/site/WorkTabs";
@@ -83,7 +84,7 @@ export default function Clipping() {
       <Navbar />
       <main>
         <PageHero
-          seed={6}
+          background={<FeedBg />}
           eyebrow="Clipping"
           title="Turn every episode into a week of clips."
           description="Shorts, Reels and TikToks cut from your long-form, with captions and a hook in the first seconds. Same editors, every week."

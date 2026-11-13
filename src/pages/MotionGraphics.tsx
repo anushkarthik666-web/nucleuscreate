@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { CtaLink } from "@/components/site/Buttons";
+import { ShapesBg } from "@/components/site/HeroBackgrounds";
 import FinalCta from "@/components/site/FinalCta";
 import { HeroLoop, lightPage, PageHero, Section, SectionHeading } from "@/components/site/Section";
 import { CardGrid, Checklist, FaqSection, Pills, PricingStrip, StepList } from "@/components/site/ServiceBlocks";
@@ -81,7 +82,7 @@ export default function MotionGraphics() {
       <Navbar />
       <main>
         <PageHero
-          seed={3}
+          background={<ShapesBg />}
           eyebrow="Motion graphics"
           title="Motion graphics that explain, launch and sell."
           description="Brand explainers, launch promos and app ads, animated from script to final frame. Vertical, horizontal, or both."
