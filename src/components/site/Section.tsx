@@ -55,20 +55,45 @@ type PageHeroProps = {
   title: string;
   description: string;
   children?: ReactNode;
+  // Optional media on the right (below the text on phones), e.g. a muted looping clip.
+  aside?: ReactNode;
 };
 
-export function PageHero({ eyebrow, title, description, children }: PageHeroProps) {
+export function PageHero({ eyebrow, title, description, children, aside }: PageHeroProps) {
   return (
     <section className="bg-[#050505] pb-20 pt-36 text-white sm:pb-28 sm:pt-44">
-      <div className={container}>
-        <p className="flex items-center gap-2 text-sm text-white/60">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-          {eyebrow}
-        </p>
-        <h1 className="mt-4 max-w-3xl font-heading text-4xl font-semibold leading-[1.05] tracking-[-0.025em] sm:text-6xl">{title}</h1>
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/65">{description}</p>
-        {children && <div className="mt-9 flex flex-col gap-3 sm:flex-row">{children}</div>}
+      <div className={`${container} ${aside ? "grid items-center gap-12 lg:grid-cols-[1.25fr_1fr] lg:gap-16" : ""}`}>
+        <div>
+          <p className="flex items-center gap-2 text-sm text-white/60">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            {eyebrow}
+          </p>
+          <h1 className="mt-4 max-w-3xl font-heading text-4xl font-semibold leading-[1.05] tracking-[-0.025em] sm:text-6xl">{title}</h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/65">{description}</p>
+          {children && <div className="mt-9 flex flex-col gap-3 sm:flex-row">{children}</div>}
+        </div>
+        {aside}
       </div>
     </section>
+  );
+}
+
+// A muted, looping clip for the page hero. Plays inline, no controls, and stays still for reduced motion.
+export function HeroLoop({ src, poster, label }: { src: string; poster: string; label: string }) {
+  const reduce = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  return (
+    <div className="mx-auto w-full max-w-[300px] overflow-hidden rounded-3xl border border-white/10 bg-white/5 lg:max-w-[340px]">
+      <video
+        className="aspect-[9/16] w-full object-cover"
+        src={reduce ? undefined : src}
+        poster={poster}
+        autoPlay={!reduce}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label={label}
+      />
+    </div>
   );
 }

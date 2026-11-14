@@ -1,6 +1,26 @@
 {
   "rewrites": [
     {
+      "source": "/podcasts",
+      "destination": "/podcasts/index.html"
+    },
+    {
+      "source": "/motion-graphics",
+      "destination": "/motion-graphics/index.html"
+    },
+    {
+      "source": "/clipping",
+      "destination": "/clipping/index.html"
+    },
+    {
+      "source": "/services/ai-video-strategy",
+      "destination": "/services/ai-video-strategy/index.html"
+    },
+    {
+      "source": "/agencies",
+      "destination": "/agencies/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
