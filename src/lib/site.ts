@@ -9,10 +9,10 @@ export const EMAIL = "hello@nucleuscreate.in";
 // TODO(linkedin): paste the LinkedIn company page URL. The footer link stays hidden until this is set.
 export const LINKEDIN_URL = "";
 
-// TODO(showreel): set to the 20 to 30 second showreel, e.g. "/showreel.mp4" (H.264, no audio, under 5 MB).
-// Until then the hero shows a still background made from work thumbnails.
-export const SHOWREEL_SRC = "";
-export const SHOWREEL_POSTER = "";
+// Muted hero loop: 20 seconds, three columns of clips from the AI video samples.
+// Swap for a podcast showreel when one exists (H.264, no audio, under 5 MB).
+export const SHOWREEL_SRC = "/hero-reel.mp4";
+export const SHOWREEL_POSTER = "/hero-reel.jpg";
 
 // Google Apps Script webhook that writes form submissions to the leads sheet.
 // Override with VITE_LEAD_WEBHOOK_URL in .env if the deployment changes.

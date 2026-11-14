@@ -1,3 +1,4 @@
+import { useState } from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { Clapperboard } from "lucide-react";
 import type { WorkTab, WorkVideo } from "@/data/work";
@@ -26,8 +27,11 @@ function VideoCard({ video }: { video: WorkVideo }) {
   );
 }
 
+const LIMIT = 6;
+
 // Inactive tabs are not mounted, so only the visible tab's thumbnails are requested.
 export default function WorkTabs({ tabs }: { tabs: WorkTab[] }) {
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   return (
     <TabsPrimitive.Root defaultValue={tabs[0].id} className="mt-10">
       <TabsPrimitive.List
@@ -55,10 +59,19 @@ export default function WorkTabs({ tabs }: { tabs: WorkTab[] }) {
                   : "grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3"
               }
             >
-              {tab.videos.map((video) => (
+              {(expanded[tab.id] ? tab.videos : tab.videos.slice(0, LIMIT)).map((video) => (
                 <VideoCard key={video.id} video={video} />
               ))}
             </div>
+            {tab.videos.length > LIMIT && !expanded[tab.id] && (
+              <button
+                type="button"
+                onClick={() => setExpanded((e) => ({ ...e, [tab.id]: true }))}
+                className="mt-10 rounded-full bg-black/[0.06] px-5 py-2.5 text-sm font-medium text-neutral-950 transition-colors hover:bg-black/10"
+              >
+                Show all {tab.videos.length}
+              </button>
+            )}
           </TabsPrimitive.Content>
         );
       })}

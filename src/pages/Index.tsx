@@ -48,16 +48,22 @@ const faqs = [
 function HeroBackground() {
   if (SHOWREEL_SRC) {
     return (
+      <>
+        {SHOWREEL_POSTER && (
+          <img src={SHOWREEL_POSTER} alt="" aria-hidden="true" className="absolute inset-0 hidden h-full w-full object-cover opacity-50 motion-reduce:block" />
+        )}
       <video
-        className="absolute inset-0 h-full w-full object-cover opacity-45"
+        className="absolute inset-0 h-full w-full object-cover opacity-50 motion-reduce:hidden"
         src={SHOWREEL_SRC}
         poster={SHOWREEL_POSTER || undefined}
         autoPlay
         muted
         loop
         playsInline
+        preload="auto"
         aria-hidden="true"
       />
+      </>
     );
   }
   // TODO(showreel): this still background is replaced automatically once SHOWREEL_SRC is set in src/lib/site.ts.
