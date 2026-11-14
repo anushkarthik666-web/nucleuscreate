@@ -22,7 +22,7 @@ const matrixRows = [
     description: "Live-action physical product composited seamlessly into generative AI environments",
     nucleus: "Yes (Rare cross-disciplinary capability)",
     aiOnly: "Impossible without physical camera crews",
-    traditional: "Massive VFX budget required ($30k+)",
+    traditional: "Large VFX budget required",
   },
   {
     capability: "Delivery Speed",
@@ -34,9 +34,9 @@ const matrixRows = [
   {
     capability: "Cost Flexibility",
     description: "Ability to blend formats to match acquisition goals and test budgets",
-    nucleus: "Flexible (Mix formats to budget)",
+    nucleus: "Flexible. Book a call for a quote",
     aiOnly: "Low cost, but rigid single style",
-    traditional: "Very high minimums ($15k - $50k+)",
+    traditional: "Very high minimums",
   },
   {
     capability: "Single Point of Contact",

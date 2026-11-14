@@ -1,12 +1,8 @@
-import { MessageCircle, PhoneCall, ArrowRight, Mail, Sparkles } from "lucide-react";
+import { PhoneCall, Mail, Sparkles } from "lucide-react";
 import nucleusPremiumLogo from "@/assets/nucleus-premium-logo.png";
 import { Link } from "react-router-dom";
 
-interface StrategyCtaProps {
-  hideFloating?: boolean;
-}
-
-export default function StrategyCta({ hideFloating }: StrategyCtaProps = {}) {
+export default function StrategyCta() {
   return (
     <>
       <section id="book" className="relative py-24 sm:py-36 bg-[#0B0A0D] border-b border-white/10 overflow-hidden">
@@ -31,13 +27,11 @@ export default function StrategyCta({ hideFloating }: StrategyCtaProps = {}) {
             {/* Action Buttons */}
             <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto">
               <a
-                href="https://wa.me/919894443263"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 rounded-full bg-[#25D366] text-black font-heading font-bold text-sm tracking-normal hover:brightness-105 active:scale-[0.98] transition-all shadow-sm"
+                href="mailto:hello@nucleuscreate.in"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 rounded-full border border-white/20 text-white font-heading font-bold text-sm tracking-normal hover:bg-white/5 active:scale-[0.98] transition-all"
               >
-                <MessageCircle className="w-4 h-4 fill-black" />
-                <span>Chat on WhatsApp</span>
+                <Mail className="w-4 h-4" />
+                <span>Email us</span>
               </a>
 
               <a
@@ -114,22 +108,6 @@ export default function StrategyCta({ hideFloating }: StrategyCtaProps = {}) {
           </div>
         </div>
       </footer>
-
-      {/* Floating WhatsApp Action Trigger */}
-      <a
-        href="https://wa.me/919894443263"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat directly on WhatsApp"
-        className={`fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-black flex items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-all group ${
-          hideFloating ? "opacity-0 pointer-events-none scale-90" : "opacity-100"
-        }`}
-      >
-        <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7 fill-black" />
-        <span className="hidden sm:inline-block absolute right-16 px-3 py-1.5 rounded-xl bg-black/90 backdrop-blur-md text-white text-xs font-heading font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/10 shadow-xl">
-          Direct Line with Strategist
-        </span>
-      </a>
     </>
   );
 }

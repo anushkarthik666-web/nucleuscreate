@@ -13,7 +13,7 @@ const processSteps = [
       "Comprehensive audit of your top-performing creative, historical winners, and immediate competitor landscape",
       "Honest format blueprint: deciding whether Live-Action, Generative AI, 3D Motion, or Hybrid maximizes ROI",
     ],
-    timelineTag: "Day 1 - 2",
+    timelineTag: "Day 1 to 2",
   },
   {
     number: "02",
@@ -26,7 +26,7 @@ const processSteps = [
       "Talent casting, studio booking (if Live-Action) or 3D CAD modeling (if Motion/CGI)",
       "Omnichannel asset map across 9:16 vertical, 1:1 square, and 16:9 widescreen formats",
     ],
-    timelineTag: "Day 2 - 4",
+    timelineTag: "Day 2 to 4",
   },
   {
     number: "03",
@@ -37,9 +37,9 @@ const processSteps = [
       "Physical shoots executed with dedicated cinema crews, precision lighting, and macro rigs",
       "Generative AI paired with hands-on artist direction for photorealistic texture, physics, and character fidelity",
       "3D CGI modeling, volumetric lighting passes, and particle dynamics rendered in-house",
-      "Zero handoff friction - the strategists who wrote the brief direct the production",
+      "Zero handoff friction: the strategists who wrote the brief direct the production",
     ],
-    timelineTag: "Day 4 - 8",
+    timelineTag: "Day 4 to 8",
   },
   {
     number: "04",
@@ -52,7 +52,7 @@ const processSteps = [
       "Custom sound design, foley work, commercial music licensing, and resonant voiceover tracks",
       "VFX cleanup, graphic callouts, subtitles, and kinetic typography overlays",
     ],
-    timelineTag: "Day 8 - 11",
+    timelineTag: "Day 8 to 11",
   },
   {
     number: "05",
@@ -65,7 +65,7 @@ const processSteps = [
       "Full export suites: TikTok 9:16, Meta 4:5 / 1:1, YouTube 16:9, and lossless archive masters",
       "Ongoing partnership retainers for continuous monthly asset testing and refresh cycles",
     ],
-    timelineTag: "Day 12 - 14",
+    timelineTag: "Day 12 to 14",
   },
 ];
 
@@ -91,7 +91,7 @@ export default function ProcessTimeline() {
           </h2>
 
           <p className="mt-4 text-sm sm:text-lg text-white/60 font-body leading-relaxed">
-            Not just a vendor queue — we operate as your integrated video engineering department.
+            Not just a vendor queue. We operate as your integrated video engineering department.
             Tap any stage below to inspect our deliverable architecture and timeline.
           </p>
         </div>

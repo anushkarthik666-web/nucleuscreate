@@ -22,7 +22,7 @@ export default function AiVideoStrategy() {
 
   // SEO Optimization & Title Management
   useEffect(() => {
-    document.title = "AI Video Strategy & Video Production — Nucleus Productions";
+    document.title = "AI Video Strategy & Video Production | Nucleus Productions";
 
     // Set meta description
     const metaDesc = document.querySelector('meta[name="description"]');
@@ -102,7 +102,7 @@ export default function AiVideoStrategy() {
         <TestimonialsAndFaq />
 
         {/* Final High-Conversion CTA & Luxury Footer */}
-        <StrategyCta hideFloating={isAnyModalActive} />
+        <StrategyCta />
       </main>
 
       {/* Scroll-Triggered AI Challenge Pop-up */}
