@@ -174,3 +174,9 @@ export const agencyWorkTabs: WorkTab[] = [
     ],
   },
 ];
+
+// TODO(work): add more clips (Reels, TikToks, LinkedIn) as they go live.
+export const clippingWorkTabs: WorkTab[] = [
+  { id: "shorts", label: "Shorts", videos: shorts },
+  { id: "teasers", label: "Teasers", videos: podcastTeasers },
+];

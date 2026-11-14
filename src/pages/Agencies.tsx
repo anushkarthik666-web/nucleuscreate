@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { CtaLink } from "@/components/site/Buttons";
 import FinalCta from "@/components/site/FinalCta";
-import { PageHero, Section, SectionHeading } from "@/components/site/Section";
+import { lightPage, PageHero, Section, SectionHeading } from "@/components/site/Section";
 import WorkTabs from "@/components/site/WorkTabs";
 import { agencyWorkTabs } from "@/data/work";
 import usePageMeta from "@/hooks/use-page-meta";
@@ -41,7 +41,7 @@ export default function Agencies() {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className={lightPage}>
       <Navbar />
       <main>
         <PageHero
@@ -49,48 +49,48 @@ export default function Agencies() {
           title="Scale your clients' creative without hiring editors."
           description="White-label edits, hooks and variations for your clients. 48-hour turnaround, the same editors every time, never client-facing."
         >
-          <CtaLink href={CALENDLY_URL}>Book a 15-minute call</CtaLink>
-          <CtaLink href="#samples" variant="secondary">See samples</CtaLink>
+          <CtaLink href={CALENDLY_URL} variant="light">Book a 15-minute call</CtaLink>
+          <CtaLink href="#samples" variant="ghostDark">See samples</CtaLink>
         </PageHero>
 
         <Section id="why">
           <SectionHeading eyebrow="Built for testing" title="The editing volume your media buyers need." />
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {proofs.map((p) => (
-              <div key={p.title} className="rounded-2xl border border-white/10 p-6 sm:p-8">
-                <h3 className="font-heading text-xl font-medium text-white">{p.title}</h3>
-                <p className="mt-3 leading-relaxed text-white/65">{p.text}</p>
+              <div key={p.title} className="rounded-2xl border border-black/[0.08] bg-white p-6 sm:p-8">
+                <h3 className="font-heading text-xl font-semibold text-neutral-950">{p.title}</h3>
+                <p className="mt-3 leading-relaxed text-neutral-600">{p.text}</p>
               </div>
             ))}
           </div>
         </Section>
 
-        <Section id="samples" className="border-t border-white/10">
+        <Section id="samples">
           <SectionHeading eyebrow="Samples" title="See what we cut." />
           <WorkTabs tabs={agencyWorkTabs} />
         </Section>
 
-        <Section id="difference" className="border-t border-white/10">
+        <Section id="difference">
           <SectionHeading eyebrow="The difference" title="Stop relying on unreliable editing." />
           <div className="mt-10 grid gap-4 lg:grid-cols-2">
-            <div className="rounded-2xl border border-white/10 p-6 sm:p-8">
-              <h3 className="text-sm font-medium text-white/55">The usual options</h3>
+            <div className="rounded-2xl border border-black/[0.08] bg-white p-6 sm:p-8">
+              <h3 className="text-sm font-medium text-neutral-500">The usual options</h3>
               <ul className="mt-6 space-y-5">
                 {usual.map((item) => (
                   <li key={item.title} className="flex gap-3">
-                    <X className="mt-0.5 h-5 w-5 shrink-0 text-white/35" />
-                    <p className="text-white/60"><span className="font-medium text-white/85">{item.title}.</span> {item.text}</p>
+                    <X className="mt-0.5 h-5 w-5 shrink-0 text-neutral-400" />
+                    <p className="text-neutral-600"><span className="font-medium text-neutral-800">{item.title}.</span> {item.text}</p>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl border border-primary/40 p-6 sm:p-8">
-              <h3 className="text-sm font-medium text-primary">Nucleus</h3>
+            <div className="rounded-2xl border border-primary/50 bg-white p-6 sm:p-8">
+              <h3 className="text-sm font-medium text-[#178a3c]">Nucleus</h3>
               <ul className="mt-6 space-y-5">
                 {nucleus.map((item) => (
                   <li key={item.title} className="flex gap-3">
-                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                    <p className="text-white/70"><span className="font-medium text-white">{item.title}.</span> {item.text}</p>
+                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#178a3c]" />
+                    <p className="text-neutral-700"><span className="font-semibold text-neutral-950">{item.title}.</span> {item.text}</p>
                   </li>
                 ))}
               </ul>
@@ -98,21 +98,21 @@ export default function Agencies() {
           </div>
         </Section>
 
-        <Section id="volume" className="border-t border-white/10">
+        <Section id="volume">
           <SectionHeading eyebrow="Volume" title="Pay for what you need to test." description="No rigid retainers. Tell us your monthly volume and we'll quote it." />
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {volumes.map((v) => (
-              <div key={v.range} className="flex flex-col rounded-2xl border border-white/10 p-6 sm:p-8">
-                <h3 className="font-heading text-xl font-medium text-white">{v.range}</h3>
+              <div key={v.range} className="flex flex-col rounded-2xl border border-black/[0.08] bg-white p-6 sm:p-8">
+                <h3 className="font-heading text-xl font-semibold text-neutral-950">{v.range}</h3>
                 <ul className="mt-6 flex-1 space-y-3">
                   {v.features.map((f) => (
-                    <li key={f} className="flex gap-2.5 text-sm text-white/65">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <li key={f} className="flex gap-2.5 text-sm text-neutral-600">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#178a3c]" />
                       <span>{f}</span>
                     </li>
                   ))}
                 </ul>
-                <CtaLink href={CALENDLY_URL} variant="secondary" className="mt-8">Book a call for a quote</CtaLink>
+                <CtaLink href={CALENDLY_URL} variant="soft" className="mt-8">Book a call for a quote</CtaLink>
               </div>
             ))}
           </div>

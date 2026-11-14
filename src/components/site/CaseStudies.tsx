@@ -1,39 +1,42 @@
-import { ArrowUpRight } from "lucide-react";
+import { Award } from "lucide-react";
 import { caseStudies } from "@/data/caseStudies";
-import { Section, SectionHeading } from "./Section";
+import { CtaLink } from "./Buttons";
+import LiteYouTube from "./LiteYouTube";
+import { framed } from "./Section";
 
 export default function CaseStudies() {
   const ready = caseStudies.filter((c) => c.stats.length > 0);
   if (ready.length === 0) return null;
 
   return (
-    <Section id="results" className="border-t border-white/10">
-      <SectionHeading eyebrow="Results" title="What the work did." />
-      <div className={`mt-10 grid gap-4 ${ready.length > 1 ? "lg:grid-cols-2" : "max-w-3xl"}`}>
-        {ready.map((c) => (
-          <article key={c.id} className="flex flex-col rounded-2xl border border-white/10 p-6 sm:p-8">
-            <p className="text-sm font-medium text-primary">{c.client}</p>
-            <dl className="mt-6 grid grid-cols-3 gap-4">
-              {c.stats.map((s) => (
-                <div key={s.label}>
-                  <dd className="whitespace-nowrap font-heading text-xl font-semibold tracking-tight text-white sm:text-4xl">{s.value}</dd>
-                  <dt className="mt-1 text-xs text-white/55 sm:text-sm">{s.label}</dt>
-                </div>
-              ))}
-            </dl>
-            <h3 className="mt-8 font-heading text-xl font-medium text-white">{c.title}</h3>
-            <p className="mt-2 flex-1 leading-relaxed text-white/65">{c.summary}</p>
-            <a
-              href={`https://www.youtube.com/watch?v=${c.youtubeId}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-white hover:text-primary"
-            >
-              Watch on YouTube <ArrowUpRight className="h-4 w-4" />
-            </a>
+    <section id="results" className="scroll-mt-16">
+      <div className={`${framed} space-y-20 py-20 sm:py-28`}>
+        {ready.map((c, i) => (
+          <article key={c.id} className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className={i % 2 ? "lg:order-2" : ""}>
+              <p className="flex items-center gap-1.5 text-sm font-medium text-[#178a3c]">
+                <Award className="h-4 w-4" /> {c.client} case study
+              </p>
+              <h3 className="mt-3 font-heading text-2xl font-semibold tracking-[-0.02em] text-neutral-950 sm:text-3xl">{c.title}</h3>
+              <p className="mt-3 max-w-md leading-relaxed text-neutral-600">{c.summary}</p>
+              <CtaLink href={`https://www.youtube.com/watch?v=${c.youtubeId}`} variant="soft" className="mt-6">
+                Watch on YouTube
+              </CtaLink>
+              <dl className="mt-8 grid grid-cols-3 overflow-hidden rounded-xl border border-black/[0.08] bg-white">
+                {c.stats.map((s, j) => (
+                  <div key={s.label} className={`p-4 ${j ? "border-l border-black/[0.08]" : ""}`}>
+                    <dt className="text-xs text-neutral-500">{s.label}</dt>
+                    <dd className="mt-1 whitespace-nowrap font-heading text-lg font-semibold text-neutral-950 sm:text-xl">{s.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+            <div className="rounded-3xl bg-black/[0.04] p-4 sm:p-8">
+              <LiteYouTube youtubeId={c.youtubeId} title={`${c.client}: ${c.title}`} className="shadow-xl" />
+            </div>
           </article>
         ))}
       </div>
-    </Section>
+    </section>
   );
 }

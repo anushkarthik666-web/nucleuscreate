@@ -2,11 +2,11 @@ const steps = ["Send the raw files", "We edit in 48 hours", "You review in one r
 
 export default function ProcessSteps() {
   return (
-    <ol className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-3">
+    <ol className="mt-10 grid gap-3 md:grid-cols-3">
       {steps.map((step, i) => (
-        <li key={step} className="bg-background p-6 sm:p-8">
-          <span className="font-heading text-sm font-medium text-primary">0{i + 1}</span>
-          <p className="mt-8 font-heading text-xl font-medium leading-snug text-white sm:text-2xl">{step}</p>
+        <li key={step} className="rounded-2xl border border-black/[0.08] bg-white p-6 sm:p-8">
+          <span className="text-sm text-neutral-500">Step {i + 1}</span>
+          <p className="mt-10 font-heading text-xl font-semibold leading-snug tracking-tight text-neutral-950 sm:text-2xl">{step}</p>
         </li>
       ))}
     </ol>
