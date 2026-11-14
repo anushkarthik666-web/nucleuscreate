@@ -34,11 +34,11 @@ export const caseStudies: CaseStudy[] = [
     summary: "We edit full episodes and teasers for Infinite Loops, including the Spencer Greenberg interview.",
     youtubeId: "nJBxhS4GqFU",
     // Source: youtube.com/@infinitel88ps, checked 12 Nov 2026. The 10 latest full episodes,
-    // published 30 Jul to 29 Oct 2026, had 6,537 views in total. Subscribers is the channel total.
+    // published 30 Jul to 29 Oct 2026, run 55,826 seconds in total (about 15.5 hours).
     stats: [
-      { value: "6,500+", label: "views on the last 10 episodes" },
-      { value: "13.2K", label: "channel subscribers" },
-      { value: "3 months", label: "10 full episodes" },
+      { value: "10", label: "full episodes" },
+      { value: "15+", label: "hours edited" },
+      { value: "3 months", label: "timeframe" },
     ],
   },
 ];
