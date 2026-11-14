@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { CtaLink } from "@/components/site/Buttons";
 import FinalCta from "@/components/site/FinalCta";
+import { BeamsBg } from "@/components/site/HeroBackgrounds";
 import { lightPage, PageHero, Section, SectionHeading } from "@/components/site/Section";
 import WorkTabs from "@/components/site/WorkTabs";
 import { agencyWorkTabs } from "@/data/work";
@@ -45,7 +46,7 @@ export default function Agencies() {
       <Navbar />
       <main>
         <PageHero
-          seed={12}
+          background={<BeamsBg />}
           eyebrow="Agencies"
           title="Scale your clients' creative without hiring editors."
           description="White-label edits, hooks and variations for your clients. 48-hour turnaround, the same editors every time, never client-facing."

@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { CtaLink } from "@/components/site/Buttons";
+import { DotsBg } from "@/components/site/HeroBackgrounds";
 import FinalCta from "@/components/site/FinalCta";
 import { HeroLoop, lightPage, PageHero, Section, SectionHeading } from "@/components/site/Section";
 import { CardGrid, Checklist, CompareTable, FaqSection, Pills, PricingStrip, StepList } from "@/components/site/ServiceBlocks";
@@ -156,7 +157,7 @@ export default function AiVideoStrategy() {
       <Navbar />
       <main>
         <PageHero
-          seed={9}
+          background={<DotsBg />}
           eyebrow="AI video, strategy and production"
           title="We don't just make AI videos. We make videos that feel right for your brand."
           description="From the first idea to the final cut. Live-action, AI or a mix of both. One team, one process."

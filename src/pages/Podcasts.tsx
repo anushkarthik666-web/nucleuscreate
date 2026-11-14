@@ -86,7 +86,6 @@ export default function Podcasts() {
       <Navbar />
       <main>
         <PageHero
-          seed={0}
           eyebrow="Podcast editing"
           title="You record. We handle everything after."
           description="Full episode edit, a teaser and 3 to 5 Shorts every week, plus thumbnails. One fixed team, working your hours, with a 3-day turnaround."
