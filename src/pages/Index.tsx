@@ -10,12 +10,11 @@ import LogoGrid from "@/components/site/LogoGrid";
 import LogoMarquee from "@/components/site/LogoMarquee";
 import ProcessSteps from "@/components/site/ProcessSteps";
 import { container, framed, lightPage, Section, SectionHeading } from "@/components/site/Section";
+import WaveBackground from "@/components/site/WaveBackground";
 import WorkTabs from "@/components/site/WorkTabs";
 import { homeWorkTabs } from "@/data/work";
 import usePageMeta from "@/hooks/use-page-meta";
-import { CALENDLY_URL, DEFAULT_DESCRIPTION, DEFAULT_TITLE, SHOWREEL_POSTER, SHOWREEL_SRC } from "@/lib/site";
-
-const heroThumbs = ["-H-Y7i9EtbQ", "kRmeoZhi8sw", "Af0xmpUVLGM", "kRmeoZhi8sw", "-H-Y7i9EtbQ", "Af0xmpUVLGM"];
+import { CALENDLY_URL, DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "@/lib/site";
 
 const numbers = [
   { value: "200+", label: "brands and agencies" },
@@ -45,37 +44,6 @@ const faqs = [
   },
 ];
 
-function HeroBackground() {
-  if (SHOWREEL_SRC) {
-    return (
-      <>
-        {SHOWREEL_POSTER && (
-          <img src={SHOWREEL_POSTER} alt="" aria-hidden="true" className="absolute inset-0 hidden h-full w-full object-cover opacity-50 motion-reduce:block" />
-        )}
-      <video
-        className="absolute inset-0 h-full w-full object-cover opacity-50 motion-reduce:hidden"
-        src={SHOWREEL_SRC}
-        poster={SHOWREEL_POSTER || undefined}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        aria-hidden="true"
-      />
-      </>
-    );
-  }
-  // TODO(showreel): this still background is replaced automatically once SHOWREEL_SRC is set in src/lib/site.ts.
-  return (
-    <div className="absolute inset-0 grid scale-105 grid-cols-2 opacity-25 blur-[3px] grayscale md:grid-cols-3" aria-hidden="true">
-      {heroThumbs.map((id, i) => (
-        <img key={i} src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`} alt="" className="h-full min-h-0 w-full object-cover" />
-      ))}
-    </div>
-  );
-}
-
 type ServiceCardProps = { title: string; text: string; to: string; image: string; className?: string };
 
 function ServiceCard({ title, text, to, image, className = "" }: ServiceCardProps) {
@@ -104,8 +72,10 @@ export default function Index() {
       <Navbar />
       <main>
         <section className="relative overflow-hidden bg-[#050505] text-white">
-          <HeroBackground />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-[#050505]" />
+          <WaveBackground />
+          {/* Vignette: darkens the edges and fades into the next section. */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_45%,transparent_30%,#050505_85%)]" />
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-[#050505]" />
           <div className={`${container} relative flex min-h-[88svh] flex-col justify-end pb-10 pt-32`}>
             <div className="grid items-end gap-8 lg:grid-cols-[1.7fr_1fr]">
               <div>
