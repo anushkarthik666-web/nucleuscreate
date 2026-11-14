@@ -20,7 +20,7 @@ import { CALENDLY_URL, DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "@/lib/site";
 
 const numbers = [
   { value: "200+", label: "brands and agencies" },
-  { value: "48-hour", label: "turnaround on edits" },
+  { value: "3-day", label: "turnaround on full episodes" },
   { value: "5-person", label: "editing team" },
   { value: "US and UK", label: "hours" },
 ];
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     q: "How fast is the turnaround?",
-    a: "48 hours for podcast edits and clips, from the moment we have your raw files. Motion graphics and AI video run on a schedule we agree on the call.",
+    a: "3 days for full podcast episodes and 48 hours for clips, from the moment we have your raw files. Motion graphics and AI video run on a schedule we agree on the call.",
   },
   {
     q: "What do you need from us?",

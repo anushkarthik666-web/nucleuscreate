@@ -45,6 +45,7 @@ export default function Agencies() {
       <Navbar />
       <main>
         <PageHero
+          seed={12}
           eyebrow="Agencies"
           title="Scale your clients' creative without hiring editors."
           description="White-label edits, hooks and variations for your clients. 48-hour turnaround, the same editors every time, never client-facing."

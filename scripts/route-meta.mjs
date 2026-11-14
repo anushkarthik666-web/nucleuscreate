@@ -11,7 +11,7 @@ const SITE = "https://nucleuscreate.in";
 const routes = {
   "/podcasts": {
     title: "Podcast Editing: Full Episodes, Teasers and Shorts | Nucleus",
-    description: "Full episode edit, a teaser and 3 to 5 Shorts every week, plus thumbnails. 48-hour turnaround from a fixed team working US and UK hours.",
+    description: "Full episode edit, a teaser and 3 to 5 Shorts every week, plus thumbnails. 3-day turnaround from a fixed team working US and UK hours.",
     image: "/og/podcasts.jpg",
   },
   "/motion-graphics": {

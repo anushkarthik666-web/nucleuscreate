@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import ContourLines from "./ContourLines";
 
 export const container = "mx-auto w-full max-w-6xl px-5 sm:px-8";
 // Dashed guide lines on the page edges, the quiet grid that frames the light sections.
@@ -57,12 +58,19 @@ type PageHeroProps = {
   children?: ReactNode;
   // Optional media on the right (below the text on phones), e.g. a muted looping clip.
   aside?: ReactNode;
+  // Shifts the background lines so each page looks a little different.
+  seed?: number;
 };
 
-export function PageHero({ eyebrow, title, description, children, aside }: PageHeroProps) {
+export function PageHero({ eyebrow, title, description, children, aside, seed = 0 }: PageHeroProps) {
   return (
-    <section className="bg-[#050505] pb-20 pt-36 text-white sm:pb-28 sm:pt-44">
-      <div className={`${container} ${aside ? "grid items-center gap-12 lg:grid-cols-[1.25fr_1fr] lg:gap-16" : ""}`}>
+    <section className="relative overflow-hidden bg-[#050505] pb-20 pt-36 text-white sm:pb-28 sm:pt-44">
+      <ContourLines seed={seed} />
+      {/* Soft green glow behind the visual, and fades so the text stays readable. */}
+      <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_78%_40%,rgba(34,197,94,0.10),transparent_45%)]" />
+      <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,transparent_35%,#050505_95%)]" />
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#050505]" />
+      <div className={`${container} relative ${aside ? "grid items-center gap-12 lg:grid-cols-[1.25fr_1fr] lg:gap-16" : ""}`}>
         <div>
           <p className="flex items-center gap-2 text-sm text-white/60">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
