@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound.tsx";
 const Podcasts = lazy(() => import("./pages/Podcasts.tsx"));
 const Agencies = lazy(() => import("./pages/Agencies.tsx"));
 const Clipping = lazy(() => import("./pages/Clipping.tsx"));
+const MotionGraphics = lazy(() => import("./pages/MotionGraphics.tsx"));
 const AiVideoStrategy = lazy(() => import("./pages/AiVideoStrategy.tsx"));
 const ThankYou = lazy(() => import("./pages/ThankYou.tsx"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy.tsx"));
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/podcasts" element={<Podcasts />} />
             <Route path="/agencies" element={<Agencies />} />
             <Route path="/clipping" element={<Clipping />} />
+            <Route path="/motion-graphics" element={<MotionGraphics />} />
             <Route path="/services/ai-video-strategy" element={<AiVideoStrategy />} />
             <Route path="/services" element={<AiVideoStrategy />} />
             <Route path="/ai-video-strategy" element={<AiVideoStrategy />} />

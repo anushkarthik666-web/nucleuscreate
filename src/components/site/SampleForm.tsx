@@ -5,7 +5,7 @@ import { useToast } from "@/hooks/use-toast";
 import { LEAD_WEBHOOK_URL } from "@/lib/site";
 import { primaryBtn } from "./Buttons";
 
-const NEEDS = ["Teaser", "Shorts", "Full edit", "Ads"] as const;
+const NEEDS = ["Full edit", "Teaser", "Shorts", "Motion graphics", "AI video", "Ads"] as const;
 
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),

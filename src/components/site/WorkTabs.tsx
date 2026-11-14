@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
-import { Clapperboard } from "lucide-react";
+import { ArrowRight, Clapperboard } from "lucide-react";
+import { Link } from "react-router-dom";
 import type { WorkTab, WorkVideo } from "@/data/work";
 import LiteYouTube from "./LiteYouTube";
 import LocalVideo from "./LocalVideo";
@@ -34,6 +35,7 @@ export default function WorkTabs({ tabs }: { tabs: WorkTab[] }) {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   return (
     <TabsPrimitive.Root defaultValue={tabs[0].id} className="mt-10">
+      {tabs.length > 1 && (
       <TabsPrimitive.List
         aria-label="Work by format"
         className="-mx-5 flex gap-2 overflow-x-auto px-5 pb-1 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:px-0 [&::-webkit-scrollbar]:hidden"
@@ -48,10 +50,11 @@ export default function WorkTabs({ tabs }: { tabs: WorkTab[] }) {
           </TabsPrimitive.Trigger>
         ))}
       </TabsPrimitive.List>
+      )}
       {tabs.map((tab) => {
         const vertical = tab.videos.some((v) => v.vertical);
         return (
-          <TabsPrimitive.Content key={tab.id} value={tab.id} className="mt-8 focus-visible:outline-none">
+          <TabsPrimitive.Content key={tab.id} value={tab.id} className={`${tabs.length < 2 ? "" : "mt-8"} focus-visible:outline-none`}>
             <div
               className={
                 vertical
@@ -71,6 +74,15 @@ export default function WorkTabs({ tabs }: { tabs: WorkTab[] }) {
               >
                 Show all {tab.videos.length}
               </button>
+            )}
+            {tab.more && (
+              <Link
+                to={tab.more.to}
+                className="group mt-10 inline-flex items-center gap-1.5 rounded-full bg-black/[0.06] px-5 py-2.5 text-sm font-medium text-neutral-950 transition-colors hover:bg-black/10"
+              >
+                {tab.more.label}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
             )}
           </TabsPrimitive.Content>
         );
