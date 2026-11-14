@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { CtaLink } from "@/components/site/Buttons";
+import PodcastAnim from "@/components/site/anim/PodcastAnim";
 import CaseStudies from "@/components/site/CaseStudies";
 import FinalCta from "@/components/site/FinalCta";
 import { lightPage, PageHero, Section, SectionHeading } from "@/components/site/Section";
@@ -89,6 +90,11 @@ export default function Podcasts() {
           eyebrow="Podcast editing"
           title="You record. We handle everything after."
           description="Full episode edit, a teaser and 3 to 5 Shorts every week, plus thumbnails. One fixed team, working your hours, with a 48-hour turnaround."
+          aside={
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-4 sm:p-6">
+              <PodcastAnim theme="dark" />
+            </div>
+          }
         >
           <CtaLink href={CALENDLY_URL} variant="light">Book a call</CtaLink>
           <CtaLink href="#samples" variant="ghostDark">See samples</CtaLink>
