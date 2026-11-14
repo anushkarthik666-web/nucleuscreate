@@ -138,12 +138,12 @@ export const motionGraphics: WorkVideo[] = [
     vertical: true,
   },
   {
-    id: "dubai-story",
-    show: "Dubai story",
-    format: "Animated explainer",
-    work: "How Dubai was built, told in motion graphics",
-    src: "/work/motion/dubai-story.mp4",
-    poster: "/work/motion/dubai-story.jpg",
+    id: "onemagnify",
+    show: "OneMagnify",
+    format: "Brand explainer",
+    work: "Data and analytics story with client case studies",
+    src: "/work/motion/onemagnify.mp4",
+    poster: "/work/motion/onemagnify.jpg",
     vertical: true,
   },
   {
